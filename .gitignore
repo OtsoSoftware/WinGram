@@ -1,0 +1,14 @@
+
+# VS & compiler folders:
+**/.vs/
+**/bin/
+**/obj/
+**/.deps/
+**/.distfiles/
+**/.setups/
+
+# Windows shortcuts
+*.lnk
+
+# Sensetive:
+**/WinGram_Data/
