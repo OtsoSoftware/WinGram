@@ -10,8 +10,8 @@
 # Windows shortcuts
 *.lnk
 
-# Sensetive:
+# Sensitive:
 wingram.session
 default.ini
 **/WinGram_Data/
-**/Windows Icons - ICO/
+**/Ico Icons/
