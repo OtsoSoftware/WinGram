@@ -1,7 +1,7 @@
 ﻿### WinGram is an unofficial Telegram Messenger client which is lightweight and bloatless.
 The project is currently BETA.
 
-[![](https://github.com/OtsoSoftware/WinGram/Resources/public/demo1.jpg)](https://raw.githubusercontent.com/OtsoSoftware/WinGram/refs/heads/master/Resources/public/demo1.jpg)
+[![](![](https://github.com/OtsoSoftware/WinGram/blob/master/Resources/public/demo1.jpg?raw=true))](https://github.com/OtsoSoftware/WinGram/blob/master/Resources/public/demo1.jpg?raw=true)
 
 #### Done:
 - Basic chat functionality
