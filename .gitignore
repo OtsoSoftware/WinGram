@@ -11,4 +11,7 @@
 *.lnk
 
 # Sensetive:
+wingram.session
+default.ini
 **/WinGram_Data/
+**/Windows Icons - ICO/
