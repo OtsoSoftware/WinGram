@@ -165,7 +165,7 @@ namespace WinGram
 				}
 				else if (mm is MessageMediaDocument { document: Document document })
 				{
-					content = "Documents not yet implemented.";
+					content = document;
 				}
 			}
 			

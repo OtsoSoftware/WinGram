@@ -172,6 +172,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\file_icons\file+document.png" />
+    <None Include="Resources\file_icons\file_video.png" />
+    <None Include="Resources\file_icons\file_unknown.png" />
+    <None Include="Resources\file_icons\file_link.png" />
+    <None Include="Resources\file_icons\file_image.png" />
+    <None Include="Resources\file_icons\file_executable.png" />
+    <None Include="Resources\file_icons\file_empty.png" />
+    <None Include="Resources\file_icons\file_audio.png" />
     <None Include="Resources\alert_ratchet.wav" />
     <None Include="Resources\smileyface.png" />
     <None Include="Resources\send_message.png" />

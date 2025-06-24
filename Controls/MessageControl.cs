@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using TL;
+using System.Threading;
 
 namespace WinGram
 {
 	public partial class MessageControl : UserControl
 	{
 		bool hideAvatar;
-
+		Document document;
 
 		public MessageControl(object content, string senderName, string sentDateTime, bool hideAvatar = false, Image avatar = null, bool backgroundAccent = false)
 		{
@@ -41,6 +43,13 @@ namespace WinGram
 				// control height to fit image:
 				this.Height = panelUpper.Height + image.Height / 3;
 			}
+			else if (content is Document document)
+			{
+				buttDocumentGo.Text = "Download if not exist: " + document.Filename;
+                this.document = document;
+                panelDocument.Visible = true;
+				this.Height = 180;
+			}
 			else if (content is string text)
 			{
 				pictureContent.Visible = false;
@@ -58,7 +67,15 @@ namespace WinGram
 			}
 		}
 
-		void pictureContent_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Downloads and (or) opens the document.
+		/// </summary>
+        async void DocumentGo(object sender, EventArgs e)
+        {
+            await Cache.GrabFileAsync(document);
+        }
+
+        void pictureContent_Click(object sender, EventArgs e)
 		{
 			new PicViewForm(pictureContent.Image).ShowDialog();
 		}
