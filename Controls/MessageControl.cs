@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using TL;
 using System.Threading;
+using Microsoft.VisualBasic.Logging;
 
 namespace WinGram
 {
@@ -17,15 +18,16 @@ namespace WinGram
 	{
 		bool hideAvatar;
 		Document document;
+		DateTime sentDateTime;
 
-		public MessageControl(object content, string senderName, string sentDateTime, bool hideAvatar = false, Image avatar = null, bool backgroundAccent = false)
+		public MessageControl(object content, string senderName, DateTime sentDateTime, bool hideAvatar = false, Image avatar = null, bool backgroundAccent = false)
 		{
 			this.hideAvatar = hideAvatar;
 
 			InitializeComponent();
 
 			labelName.Text = senderName;
-			labelDateTime.Text = sentDateTime;
+			labelDateTime.Text = sentDateTime.ToString(Types.dateTimeFormat);
 			pictureAvatar.Image = avatar;
 			
 			if (hideAvatar)
@@ -67,10 +69,44 @@ namespace WinGram
 			}
 		}
 
+
+		public void UpdateRelativeTime()
+		{
+			TimeSpan span = DateTime.Now - sentDateTime;
+
+			string text;
+
+			if (span.TotalSeconds < 60)
+			{
+				int secs = (int)span.TotalSeconds;
+				text = $"{secs} sec ago";
+			}
+			else if (span.TotalMinutes < 60)
+			{
+				int mins = (int)span.TotalMinutes;
+				text = $"{mins} min ago";
+			}
+			else if (span.TotalHours < 23)
+			{
+				int hrs = (int)span.TotalHours;
+				text = $"{hrs} hours ago";
+			}
+			else
+			{
+				// fallback to absolute date/time format
+				text = sentDateTime.ToString(Types.dateTimeFormat);
+			}
+
+			// Don't trigger unnecessary redraws
+			if (labelDateTime.Text != text)
+				labelDateTime.Text = text;
+		}
+
+
 		/// <summary>
 		/// Downloads and (or) opens the document.
 		/// </summary>
-        async void DocumentGo(object sender, EventArgs e)
+		async void DocumentGo(object sender, EventArgs e)
         {
             await Cache.GrabFileAsync(document);
         }

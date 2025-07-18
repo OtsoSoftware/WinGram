@@ -15,5 +15,13 @@ namespace WinGram
         {
             new System.Media.SoundPlayer(WinGram.Properties.Resources.alert_ratchet).Play();
         }
+
+        /// <summary>
+        /// Sends a notification to Windows
+        /// </summary>
+        public static void Send(string content, string title = "WinGram")
+        {
+
+        }
     }
 }

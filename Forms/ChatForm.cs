@@ -172,7 +172,7 @@ namespace WinGram
 			MessageControl mess = new(
 				content: content,
 				senderName: from_id == client.UserId ? "Me" : user.MainUsername,
-				sentDateTime: message.Date.ToString(Types.dateTimeFormat),
+				sentDateTime: message.Date,
 				hideAvatar: chatType == ChatType.Dialog ? true : false,
 				avatar: from_id == client.UserId ? MyAvatar : avatar,
 				backgroundAccent: from_id == client.UserId && chatType == ChatType.Dialog ? true : false)

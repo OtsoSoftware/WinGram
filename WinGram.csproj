@@ -72,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\IniFile.cs" />
+    <Compile Include="Controls\SmoothFlowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\ChatForm.cs">
       <SubType>Form</SubType>
     </Compile>
